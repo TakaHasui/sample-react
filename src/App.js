@@ -1,28 +1,15 @@
 import React from 'react';
-
-// class App extends Component {
-//   render () {
-//     return (
-//       <React.Fragment>
-//         <label htmlFor="test">bar</label>
-//         <input type="text" onClick={() => {console.log("Clicked! console ")}} />
-//       </React.Fragment>
-//     )
-//   }
-// }
+import PropTypes from 'prop-types';
 
 const App = () => {
   const profiles = [
-    {name: 'Hasui'},
-    {name: 'Yuki', age: 28}
+    {name: 'Hasui', age: 35},
+    // {name: 5, age: 28},
+    {name: 'Yuki', age: 'NoData'},
+    {name: 'Yuki'}
   ]
   return (
     <React.Fragment>
-    Hi!
-    <User name={"Hassan"} />
-    <User name={"Hassan"} age={36} />
-    <User name={"Yuki"} age={35} />
-    <Cat />
     {
       profiles.map((data, index)=> {
         return <User name={data.name} age={data.age} key={index}/>
@@ -32,15 +19,13 @@ const App = () => {
   )
 }
 
-const Cat = () => {
-  return <div>Meow!</div>
-}
 const User = (props) => {
   return <div>Hi, {props.name}! {props.age} years old.</div>
 }
 
-User.defaultProps = {
-  age: 17
+User.propTypes = {
+  name: PropTypes.string,
+  age: PropTypes.number.isRequired
 }
 
 export default App;
