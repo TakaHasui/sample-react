@@ -1,26 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
+// class App extends Component {
+//   render () {
+//     return (
+//       <React.Fragment>
+//         <label htmlFor="test">bar</label>
+//         <input type="text" onClick={() => {console.log("Clicked! console ")}} />
+//       </React.Fragment>
+//     )
+//   }
+// }
+
+const App = () => {
+  const profiles = [
+    {name: 'Hasui'},
+    {name: 'Yuki', age: 28}
+  ]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <div>Hello React!</div>
-      </header>
-    </div>
-  );
+    <React.Fragment>
+    Hi!
+    <User name={"Hassan"} />
+    <User name={"Hassan"} age={36} />
+    <User name={"Yuki"} age={35} />
+    <Cat />
+    {
+      profiles.map((data, index)=> {
+        return <User name={data.name} age={data.age} key={index}/>
+      })
+    }
+    </React.Fragment>
+  )
+}
+
+const Cat = () => {
+  return <div>Meow!</div>
+}
+const User = (props) => {
+  return <div>Hi, {props.name}! {props.age} years old.</div>
+}
+
+User.defaultProps = {
+  age: 17
 }
 
 export default App;
