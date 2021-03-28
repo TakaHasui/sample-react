@@ -24,6 +24,9 @@ docker
   - yarn add redux-thunk
   - yarn add react-router-dom
   - yarn add redux-form
+  - yarn add redux-devtools-extension
+    - 対応するChromeExtensionを追加
+      - https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=ja
 - React起動
   - npm run start
 
