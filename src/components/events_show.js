@@ -36,14 +36,14 @@ class EventsShow extends Component {
   }
 
   async onSubmit(values) {
-    // await this.props.postEvent(values)
+    await this.props.putEvent(values)
     this.props.history.push('/')
   }
 
   render() {
     // pristine: 何も手が付けられていない状態を示す属性
     // submitting: 連打防止。
-    const { handleSubmit, pristine, submitting } = this.props
+    const { handleSubmit, pristine, submitting, invalid } = this.props
     return (
       <React.Fragment>
         <div>イベント詳細</div>
@@ -53,7 +53,7 @@ class EventsShow extends Component {
             <Field lavel="Body" name="body" type="text" component={this.renderField}/>
 
             <div>
-             <input type="submit" value="Submit" disabled={pristine || submitting} />
+             <input type="submit" value="Submit" disabled={pristine || submitting || invalid} />
              <Link to="/">Cancel</Link>
              <Link to="/" onClick={this.onDeleteClick} >Delete</Link>
             </div>
@@ -77,7 +77,7 @@ const mapStateToProp = (state, ownProps) => {
   const event = state.events[ownProps.match.params.id]
   return { initialValues: event, event }
 }
-const mapDispatchToProps = ({ deleteEvent, getEvent })
+const mapDispatchToProps = ({ deleteEvent, getEvent, putEvent })
 
 // connect: stateとactionをcomponentに関連付ける
 export default connect(mapStateToProp, mapDispatchToProps)(

@@ -30,7 +30,7 @@ async onSubmit(values) {
   render() {
     // pristine: 何も手が付けられていない状態を示す属性
     // submitting: 連打防止。
-    const { handleSubmit, pristine, submitting } = this.props
+    const { handleSubmit, pristine, submitting, invalid } = this.props
     return (
       <React.Fragment>
         <div>新規作成画面</div>
@@ -40,7 +40,7 @@ async onSubmit(values) {
             <Field lavel="Body" name="body" type="text" component={this.renderField}/>
 
             <div>
-             <input type="submit" value="Submit" disabled={pristine || submitting} />
+             <input type="submit" value="Submit" disabled={pristine || submitting || invalid} />
              <Link to="/">Cancel</Link>
             </div>
           </div>
