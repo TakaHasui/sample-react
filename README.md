@@ -22,6 +22,8 @@ docker
   - yarn add redux react-redux
   - yarn add axios
   - yarn add redux-thunk
+  - yarn add react-router-dom
+  - yarn add redux-form
 - React起動
   - npm run start
 
