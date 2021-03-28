@@ -1,3 +1,30 @@
+# 概要
+Udemyの講座に沿ったReactの学習実践として作成
+https://www.udemy.com/course/react-application-development/
+
+# 環境
+docker
+
+#環境構築手順
+- `Dockerfile` と `docker-compose.yml` を作成
+  - commit内容に含み忘れたから後でどこかに書く
+- イメージをビルド
+  - `docker-compose build`
+- React と create-react-app をインストール・アプリ作成
+  - docker-compose run --rm react sh -c "npm install -g create-react-app && create-react-app workplace"
+- docker起動
+  - docker-compose up -d
+- Reactのファイルに更新があったら自動ビルドするよう修正
+  - package.json
+    - `scripts` の `start` を以下のように修正
+    - `"start": "CHOKIDAR_USEPOLLING=true react-scripts start",`
+- 必要なパッケージのインストール
+  - yarn add redux react-redux
+  - yarn add axios
+  - yarn add redux-thunk
+- React起動
+  - npm run start
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
