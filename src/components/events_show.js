@@ -7,10 +7,14 @@ import { getEvent, deleteEvent, putEvent } from '../actions';
 
 class EventsShow extends Component {
   constructor(props) {
-    console.log('SHOW!')
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
     this.onDeleteClick = this.onDeleteClick.bind(this)
+  }
+
+  componentDidMount() {
+    const { id } = this.props.match.params
+    if (id) this.props.getEvent(id)
   }
 
   renderField(field) {
@@ -42,7 +46,7 @@ class EventsShow extends Component {
     const { handleSubmit, pristine, submitting } = this.props
     return (
       <React.Fragment>
-        <div>新規作成画面</div>
+        <div>イベント詳細</div>
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <div>
             <Field lavel="Title" name="title" type="text" component={this.renderField}/>
@@ -69,9 +73,14 @@ const validate = values => {
   return errors
 }
 
-const mapDispatchToProps = ({ deleteEvent })
+const mapStateToProp = (state, ownProps) => {
+  const event = state.events[ownProps.match.params.id]
+  return { initialValues: event, event }
+}
+const mapDispatchToProps = ({ deleteEvent, getEvent })
 
 // connect: stateとactionをcomponentに関連付ける
-export default connect(null, mapDispatchToProps)(
-  reduxForm({ validate, form: 'eventShowForm'})(EventsShow)
+export default connect(mapStateToProp, mapDispatchToProps)(
+  // enableReinitialize : trueにすると、initialValuesが更新される度に初期化される
+  reduxForm({ validate, form: 'eventShowForm', enableReinitialize: true})(EventsShow)
 )

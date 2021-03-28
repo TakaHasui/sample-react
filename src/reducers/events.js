@@ -1,11 +1,15 @@
 import _ from 'lodash' // 配列の操作が得意なパッケージ
 import {
+  READ_EVENT,
   READ_EVENTS,
   DELETE_EVENT,
 } from '../actions'
 
 export default (events = {}, action) => {
   switch (action.type) {
+    case READ_EVENT:
+      const data = action.response.data
+      return {...events, [data.id]: data}
     case READ_EVENTS:
       // console.log(action.response.data)
       // _.mapKeys: idをキーとした連想配列に置き換える
