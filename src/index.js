@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 // Provider: storeをアプリケーション内部のどのcomponentからも参照できるようにする
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import './index.css';
 import reducer from './reducers'
@@ -15,11 +16,16 @@ import reportWebVitals from './reportWebVitals';
 const store = createStore(reducer, applyMiddleware(thunk))
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <EventsIndex />
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <Switch>
+      {/*
+      <Route exact path="/events/new" component={EventNew} />
+        */}
+        <Route exact path="/" component={EventsIndex} />
+      </Switch>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
 
