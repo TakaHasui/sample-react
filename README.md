@@ -27,6 +27,8 @@ docker
   - yarn add redux-devtools-extension
     - 対応するChromeExtensionを追加
       - https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=ja
+  - yarn add material-ui@0.20.0
+    - TODO: 古すぎる。後でアップデートする
 - React起動
   - npm run start
 
