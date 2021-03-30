@@ -1,11 +1,11 @@
 # 概要
-Udemyの講座に沿ったReactの学習実践として作成
-https://www.udemy.com/course/react-application-development/
+- Udemyの講座に沿ったReactの学習実践として作成
+  - https://www.udemy.com/course/react-application-development/
 
 # 環境
 docker
 
-#環境構築手順
+# 環境構築手順
 - `Dockerfile` と `docker-compose.yml` を作成
   - commit内容に含み忘れたから後でどこかに書く
 - イメージをビルド
