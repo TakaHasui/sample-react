@@ -42,8 +42,8 @@ async onSubmit(values) {
         <div>新規作成画面</div>
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <div>
-            <Field lavel="Title" name="title" type="text" component={this.renderField}/>
-            <Field lavel="Body" name="body" type="text" component={this.renderField}/>
+            <Field label="Title" name="title" type="text" component={this.renderField}/>
+            <Field label="Body" name="body" type="text" component={this.renderField}/>
 
             <RaisedButton label="Submit" type="submit" style={style} disabled={pristine || submitting || invalid} />
             <RaisedButton label="Cancel" style={style} containerElement={<Link to="/" />}/>
