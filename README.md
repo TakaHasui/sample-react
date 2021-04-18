@@ -11,9 +11,9 @@ docker
 - イメージをビルド
   - `docker-compose build`
 - React と create-react-app をインストール・アプリ作成
-  - docker-compose run --rm react sh -c "npm install -g create-react-app && create-react-app workplace"
+  - `docker-compose run --rm react sh -c "npm install -g create-react-app && create-react-app workplace"`
 - docker起動
-  - docker-compose up -d
+  - `docker-compose up -d`
 - Reactのファイルに更新があったら自動ビルドするよう修正
   - package.json
     - `scripts` の `start` を以下のように修正
