@@ -19,11 +19,7 @@ docker
     - `scripts` の `start` を以下のように修正
     - `"start": "CHOKIDAR_USEPOLLING=true react-scripts start",`
 - 必要なパッケージのインストール
-  - yarn add redux react-redux
-  - yarn add axios
-  - yarn add redux-thunk
-  - yarn add react-router-dom
-  - yarn add redux-form
+  - yarn add redux react-redux axios redux-thunk react-router-dom redux-form
   - yarn add redux-devtools-extension
     - 対応するChromeExtensionを追加
       - https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=ja
